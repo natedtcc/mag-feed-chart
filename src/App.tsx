@@ -1,7 +1,7 @@
 // App.tsx - main app - N. Nasteff 10/25/2021
 
 import React from 'react';
-import classes from "./App.module.css";
+import styles from './App.module.css';
 import Header from "./components/Header/Header";
 import MagTable from './components/MagTable/MagTable';
 import { FeedingChart } from './assets/FeedingChart';
@@ -16,7 +16,7 @@ const mags: FeedingChart[] = [
 
 function App() {
   return (
-    <div className={classes.App}>
+    <div className={styles.App}>
       <Header></Header>
       <Body></Body>
         <MagTable {...mags[0]} />

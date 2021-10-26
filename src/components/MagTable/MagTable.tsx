@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./MagTable.module.css";
+import styles from "./MagTable.module.css";
 import Aux from "../../hoc/Auxi";
 import { FeedingChart } from "../../assets/FeedingChart";
 
@@ -30,7 +30,7 @@ const MagTable = (mag: FeedingChart): JSX.Element  => {
     }
   return (
     <Aux>
-      <div className={classes.MagTable}>
+      <div className={styles.MagTable}>
         <p>{mag_names}</p>
         <table>
           <thead>
