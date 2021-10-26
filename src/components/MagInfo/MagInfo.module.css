@@ -1,0 +1,43 @@
+.MagInfo {
+    width: 400px;
+    background-color: black;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding-top: 2px;
+    text-align: center;
+    border: 2px solid;
+    border-color: aquamarine;
+    border-radius: 25px 25px 25px 25px;
+    padding-bottom: 50px;
+
+}
+
+.MagInfo p {
+    font-weight: bold;
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+@keyframes glowup {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: .25;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    75% {
+        opacity: .75;
+    }
+
+    100% {
+        opacity: .999;
+    }
+}

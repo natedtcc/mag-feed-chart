@@ -1,0 +1,52 @@
+.MagTable {
+    width: 400px;
+    background-color: black;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding-top: 2px;
+    text-align: center;
+    border: 2px solid;
+    border-color: aquamarine;
+    border-radius: 25px 25px 25px 25px;
+    padding-bottom: 50px;
+
+}
+
+.MagTable p {
+    font-weight: bold;
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+}
+.MagTable table {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 375px;
+    font-size: 15px;
+    font-family: 'Mukta Malar', sans-serif;
+    table-layout: inherit;
+}
+
+.MagTable table, tr, th, td, tbody, thead {
+    border: 2px solid;
+    border-collapse: collapse;
+    border-color: white;
+    font-size: 15px;
+    
+}
+
+.MagTable th {
+    font-weight: bold;
+    color: white;
+}
+
+.MagTable td {
+    color: blanchedalmond;
+    font-size: 15px;
+}
+
+.Label {
+    color: white;
+}
