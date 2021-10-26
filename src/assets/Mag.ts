@@ -22,7 +22,7 @@ export class Mag extends MagLevels {
   private _mindProgress: number = 0;
   
   // Assign a base mag feed chart to the mag by default
-  protected feedChart: FeedingChart = new FeedingChart();
+  protected feedChart: FeedingChart;
 
   // Array of feeding charts for discerning mag names
   protected feedCharts: FeedingChart[] = [
@@ -36,9 +36,11 @@ export class Mag extends MagLevels {
     // Call MagLevel constructor to assign the mag's base evolution level
     super(magName);
 
-    // Let's figure which feeding chart to assign to this mag
-    this.magName = "Placeholder";
+    // Default base values
+    this.magName = "Placeholder";       // Test value until I finish all feed tables
+    this.feedChart = new FeedingChart();
 
+    // Let's figure which feeding chart to assign to this mag
     for (let i=0; i<this.feedCharts.length; i++){
       if (this.feedCharts[i].names.includes(magName)){
         this.feedChart = this.feedCharts[i];
@@ -50,21 +52,13 @@ export class Mag extends MagLevels {
 
   // Feed a mag an item to increase it's levels
 
-  magFeed(food: string) {
+  public magFeed(food: string): void {
 
     if (food === "monomate") {
       this._powProgress += this.feedChart.monomate.pow;
       this._mindProgress += this.feedChart.monomate.mind;
       this._dexProgress += this.feedChart.monomate.dex;
       this._defProgress += this.feedChart.monomate.def;
-      
-      if (this._iqLevel < 200){
-        this._iqLevel += this.feedChart.monomate.iq;
-      }
-      
-      if (this._syncLevel < 120){
-        this._syncLevel += this.feedChart.monomate.sync;
-      }
     }
     else if (food === "dimate") {
       this._powProgress += this.feedChart.dimate.pow;
@@ -147,7 +141,8 @@ export class Mag extends MagLevels {
       this._syncLevel += this.feedChart.star.sync;
     }
 
-    this.zeroProgress();
+    // Ensure levels / progressions are within min/max range
+    this.zeroOrMaxProgress();
 
     // Calculate the mag's new level after feed
     this.levelMag();
@@ -160,7 +155,12 @@ export class Mag extends MagLevels {
   ** level the mag accordingly.
   */
   
-  levelMag() {
+  private levelMag(): void {
+
+    // If a mag is at 200, no more leveling is possible
+    if (this.magLevel == 200){
+      return;
+    }
 
     if (this._powProgress > 99) {
       this._powLevel++;
@@ -186,15 +186,25 @@ export class Mag extends MagLevels {
   }
 
   // No mag's stat progression should ever be below 0! If an item
-  // fed to the mag causes that, this func reverts the progress to 0
+  // fed to the mag causes that, this func reverts the progress to 0.
+  // Also, a mag's synchro and iq should never be above 120 or 200, 
+  // respectively.
 
-  public zeroProgress(){
+  private zeroOrMaxProgress(): void {
     if (this._iqLevel < 0){
       this._iqLevel = 0;
     }
 
     if (this._syncLevel < 0){
       this._syncLevel = 0;
+    }
+
+    if (this._iqLevel > 200){
+      this._iqLevel = 200;
+    }
+    
+    if (this._syncLevel > 120){
+      this._syncLevel = 120;
     }
 
     if (this._powProgress < 0){
