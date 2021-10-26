@@ -5,7 +5,7 @@ import { FeedingChart } from "./FeedingChart";
 export class Mag  {
 
   // Assign all mag levels / progress to base
-  private _magName: string = "Mag";
+  private _magName: string = "";
 
   private _magLevel: number = 5;  // Base mag level
   private _syncLevel: number = 0;
@@ -41,30 +41,10 @@ export class Mag  {
       if (this.feedCharts[i].names.includes(magName)){
         this.feedChart = this.feedCharts[i];
         this._magLevel = this.feedChart.level;
+        this._magName = magName;
+        break;
       }
     }
-    
-    // Assign mag level / feeding chart based on constructor args
-
-    // if (magType === 'evo1'){
-    //   this._magLevel = 10;
-    //   this.feedChart = new FeedingChart('evo1');
-    // }
-
-    // else if (magType === 'evo2'){
-    //   this._magLevel = 35;
-    //   this.feedChart = new FeedingChart('evo2');
-    // }
-
-    // else if (magType === 'evo3'){
-    //   this._magLevel = 50;
-    //   this.feedChart = new FeedingChart('evo3');
-    // }
-
-    // else if (magType === 'evo4'){
-    //   this._magLevel = 100;
-    //   this.feedChart = new FeedingChart('evo3');
-    // }
 
   }
 
@@ -167,7 +147,7 @@ export class Mag  {
       this._syncLevel += this.feedChart.star.sync;
     }
 
-    // Calculate the mag's new level after every feed
+    // Calculate the mag's new level after feed
     this.levelMag();
     
   }
