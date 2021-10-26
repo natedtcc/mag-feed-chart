@@ -7,7 +7,7 @@ export class Mag  {
   // Assign all mag levels / progress to base
   private _magName: string = "";
 
-  private _magLevel: number = 5;  // Base mag level
+  private _magLevel: number = 0;  // Base mag level
   private _syncLevel: number = 0;
   private _iqLevel: number = 0;
   private _defLevel: number = 5;  // All mags start with 5 defense
