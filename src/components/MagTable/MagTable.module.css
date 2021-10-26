@@ -26,7 +26,6 @@
     width: 375px;
     font-size: 15px;
     font-family: 'Mukta Malar', sans-serif;
-    table-layout: inherit;
 }
 
 .MagTable table, tr, th, td, tbody, thead {
@@ -40,6 +39,7 @@
 .MagTable th {
     font-weight: bold;
     color: white;
+    text-align: center;
 }
 
 .MagTable td {
