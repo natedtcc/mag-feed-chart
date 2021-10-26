@@ -1,6 +1,5 @@
-import { Mag } from "../assets/Mag";
+import { Mag } from "../../assets/Mag";
 import { expect } from "chai";
-import { assert } from "console";
 
 const mag = new Mag('Mag');
 const mag2 = new Mag('Sumba');

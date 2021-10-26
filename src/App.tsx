@@ -9,8 +9,8 @@ import Body from './components/Body/Body';
 
 // Create an array of feeding charts
 const mags: FeedingChart[] = [
-  new FeedingChart(), new FeedingChart('evo1'), 
-  new FeedingChart('evo2'), new FeedingChart('evo3') 
+  new FeedingChart(), new FeedingChart('table1'), 
+  new FeedingChart('table2'), new FeedingChart('table3') 
 ]
 
 

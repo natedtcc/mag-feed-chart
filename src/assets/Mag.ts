@@ -1,13 +1,13 @@
 // Mag.ts - Mag class definitions / logic - N. Nasteff 10/25/2021
 
+import { MagLevels } from "./MagLevels";
 import { FeedingChart } from "./FeedingChart";
 
-export class Mag  {
+export class Mag extends MagLevels {
 
   // Assign all mag levels / progress to base
   private _magName: string = "";
 
-  private _magLevel: number = 0;  // Base mag level
   private _syncLevel: number = 0;
   private _iqLevel: number = 0;
   private _defLevel: number = 5;  // All mags start with 5 defense
@@ -26,26 +26,26 @@ export class Mag  {
 
   // Array of feeding charts for discerning mag names
   protected feedCharts: FeedingChart[] = [
-    new FeedingChart(), new FeedingChart('evo1'),
-    new FeedingChart('evo2'), new FeedingChart('evo3')
+    new FeedingChart(), new FeedingChart('table1'),
+    new FeedingChart('table2'), new FeedingChart('table3')
   ]
 
   // Constructor for base mag / evolutions 1-3
   constructor(magName: string){
 
-    // Let's figure out which mag evolution group magName belongs to,
-    // and assign it a feeding chart + a base level relative to it's
-    // evolution group.
+    // Call MagLevel constructor to assign the mag's base evolution level
+    super(magName);
+
+    // Let's figure which feeding chart to assign to this mag
+    this.magName = "Placeholder";
 
     for (let i=0; i<this.feedCharts.length; i++){
       if (this.feedCharts[i].names.includes(magName)){
         this.feedChart = this.feedCharts[i];
-        this._magLevel = this.feedChart.level;
         this._magName = magName;
         break;
       }
     }
-
   }
 
   // Feed a mag an item to increase it's levels
@@ -147,6 +147,8 @@ export class Mag  {
       this._syncLevel += this.feedChart.star.sync;
     }
 
+    this.zeroProgress();
+
     // Calculate the mag's new level after feed
     this.levelMag();
     
@@ -183,7 +185,34 @@ export class Mag  {
     
   }
 
+  // No mag's stat progression should ever be below 0! If an item
+  // fed to the mag causes that, this func reverts the progress to 0
 
+  public zeroProgress(){
+    if (this._iqLevel < 0){
+      this._iqLevel = 0;
+    }
+
+    if (this._syncLevel < 0){
+      this._syncLevel = 0;
+    }
+
+    if (this._powProgress < 0){
+      this._powProgress = 0;
+    }
+
+    if (this._defProgress < 0){
+      this._defProgress = 0;
+    }
+
+    if (this._dexProgress < 0){
+      this._dexProgress = 0;
+    }
+
+    if (this._mindProgress < 0){
+      this._mindProgress = 0;
+    }
+  }
 
   // Accessor definitions
 

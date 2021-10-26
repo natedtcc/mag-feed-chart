@@ -8,7 +8,6 @@ export class FeedingChart {
   // All possible names for this mag in it's current evolution level
   
   names: string[];
-  level: number;
   // Define the stat amount gained / lost depending on the item being fed
   // IE: Feeding a mag a monomate will raise sync by 2, lower iq by 2 etc etc
 
@@ -27,9 +26,8 @@ export class FeedingChart {
   // With no argument, this will instantiate a base mag feed chart.
   // Otherwise, assign a chart based on evolution level
 
-  constructor(evolutionType?: 'evo1'|'evo2'|'evo3'){
+  constructor(feedTable?: 'table1'|'table2'|'table3'|'table4'|'table5'){
       this.names = ["Mag"];
-      this.level = 5;
       this.monomate = {
         sync: 3,
         iq: 3,
@@ -120,9 +118,8 @@ export class FeedingChart {
         mind: 25,
       };
 
-    if (evolutionType === 'evo1'){
+    if (feedTable === 'table1'){
       this.names = ["Varuna", "Kalki", "Vritra"];
-      this.level = 10;
       this.monomate = {
         sync: 0,
         iq: 0,
@@ -133,98 +130,97 @@ export class FeedingChart {
       };
 
       this.dimate = {
-        sync: 3,
-        iq: 3,
-        def: 10,
-        pow: 45,
-        dex: 5,
-        mind: 0,
+        sync: 2,
+        iq: 1,
+        def: 6,
+        pow: 15,
+        dex: 3,
+        mind: -3,
       };
       this.trimate = {
-        sync: 4,
-        iq: 4,
-        def: 15,
-        pow: 50,
-        dex: 10,
-        mind: 0,
+        sync: 3,
+        iq: 2,
+        def: 12,
+        pow: 21,
+        dex: 4,
+        mind: -7,
       };
 
       this.monofluid = {
-        sync: 3,
-        iq: 3,
+        sync: 0,
+        iq: 0,
         def: 5,
         pow: 0,
-        dex: 5,
-        mind: 40,
+        dex: 0,
+        mind: 8,
       };
 
       this.difluid = {
-        sync: 3,
-        iq: 3,
-        def: 10,
+        sync: 2,
+        iq: 1,
+        def: 7,
         pow: 0,
-        dex: 5,
-        mind: 45,
+        dex: 3,
+        mind: 13,
       };
 
       this.trifluid = {
-        sync: 4,
-        iq: 4,
-        def: 15,
-        pow: 0,
-        dex: 10,
-        mind: 50,
+        sync: 3,
+        iq: 2,
+        def: 7,
+        pow: -7,
+        dex: 6,
+        mind: 19,
       };
 
       this.antidote = {
-        sync: 3,
-        iq: 3,
-        def: 5,
-        pow: 10,
-        dex: 40,
+        sync: 0,
+        iq: 1,
+        def: 0,
+        pow: 5,
+        dex: 15,
         mind: 0,
       };
 
       this.antiparalysis = {
-        sync: 3,
-        iq: 3,
-        def: 5,
+        sync: 2,
+        iq: 0,
+        def: -1,
         pow: 0,
-        dex: 44,
-        mind: 10,
+        dex: 14,
+        mind: 5,
       };
 
       this.sol = {
-        sync: 4,
-        iq: 1,
-        def: 15,
-        pow: 30,
-        dex: 15,
-        mind: 25,
+        sync: -2,
+        iq: 2,
+        def: 10,
+        pow: 11,
+        dex: 8,
+        mind: 0,
       };
 
       this.moon = {
-        sync: 4,
-        iq: 1,
-        def: 15,
-        pow: 25,
-        dex: 15,
-        mind: 30,
+        sync: 3,
+        iq: -2,
+        def: 9,
+        pow: 0,
+        dex: 9,
+        mind: 11,
       };
 
       this.star = {
-        sync: 6,
-        iq: 5,
-        def: 25,
-        pow: 25,
-        dex: 25,
-        mind: 25,
+        sync: 4,
+        iq: 3,
+        def: 14,
+        pow: 9,
+        dex: 18,
+        mind: 11,
       };
     }
 
-    else if (evolutionType === 'evo2'){
+    else if (feedTable === 'table2'){
       this.names = ["Ashvinau", "Sumba", "Namuci", "Marutah", "Rudra"];
-      this.level = 35;
       this.monomate =  {
         sync: 0,
         iq: -1,
@@ -316,9 +312,8 @@ export class FeedingChart {
 
     }
 
-    else if (evolutionType === 'evo3'){
+    else if (feedTable === 'table3'){
       this.names = ["Asparas", "Vayu", "Varaha", "Ushasu", "Kama", "Kaitabha", "Kumara", "Bhirava"];
-      this.level = 50;
       this.monomate= {
         sync: 2,
         iq: -1,
