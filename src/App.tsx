@@ -5,7 +5,6 @@ import classes from "./App.module.css";
 import Header from "./components/Header/Header";
 import MagTable from './components/MagTable/MagTable';
 import { FeedingChart } from './assets/FeedingChart';
-import './App.css';
 import Body from './components/Body/Body';
 
 // Create an array of feeding charts

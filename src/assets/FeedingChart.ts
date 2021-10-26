@@ -1,12 +1,14 @@
 // FeedingChart.ts - Mag feeding chart class def - N. Nasteff 10/25/2021
 
+import internal from "stream";
+
 
 export class FeedingChart {
 
   // All possible names for this mag in it's current evolution level
   
   names: string[];
-
+  level: number;
   // Define the stat amount gained / lost depending on the item being fed
   // IE: Feeding a mag a monomate will raise sync by 2, lower iq by 2 etc etc
 
@@ -27,6 +29,7 @@ export class FeedingChart {
 
   constructor(evolutionType?: 'evo1'|'evo2'|'evo3'){
       this.names = ["Mag"];
+      this.level = 5;
       this.monomate = {
         sync: 3,
         iq: 3,
@@ -119,6 +122,7 @@ export class FeedingChart {
 
     if (evolutionType === 'evo1'){
       this.names = ["Varuna", "Kalki", "Vritra"];
+      this.level = 10;
       this.monomate = {
         sync: 0,
         iq: 0,
@@ -220,6 +224,7 @@ export class FeedingChart {
 
     else if (evolutionType === 'evo2'){
       this.names = ["Ashvinau", "Sumba", "Namuci", "Marutah", "Rudra"];
+      this.level = 35;
       this.monomate =  {
         sync: 0,
         iq: -1,
@@ -313,6 +318,7 @@ export class FeedingChart {
 
     else if (evolutionType === 'evo3'){
       this.names = ["Asparas", "Vayu", "Varaha", "Ushasu", "Kama", "Kaitabha", "Kumara", "Bhirava"];
+      this.level = 50;
       this.monomate= {
         sync: 2,
         iq: -1,
