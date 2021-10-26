@@ -1,6 +1,8 @@
 
 export class MagLevels {
 
+  // Define all mag names grouped by which evolution they belong to
+
   private _baseMag: string[] = ["Mag"];
   private _firstEvo: string[] = ["Varuna", "Kalki", "Vritra"];
   private _secondEvo: string[] = [
@@ -14,8 +16,10 @@ export class MagLevels {
   private _fourthEvo: string[] = [
     "Bhima", "Deva", "Diwan", "Nidra", "Pushan", "Rati", "Rukmin", "Sato", "Savitri"];
 
-  protected _magLevel: number = 0;
+  protected _magLevel: number;
 
+  // Assign a mag level that correlates to the name / evolution level of a mag
+  // Base: level 5  Evo1: Level 10  Evo2: level 35  Evo3: level 50  Evo4: level 100
   constructor(magName: string) {
 
     if (this._baseMag.includes(magName)) {
