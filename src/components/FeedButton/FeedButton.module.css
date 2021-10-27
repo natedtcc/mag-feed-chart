@@ -1,0 +1,12 @@
+.FeedButton {
+  font-size: 13px;
+  border: solid;
+  color: white;
+  height: 40px;
+  width: 110px;
+  background-color: black;
+}
+
+.FeedButton label {
+  color: pink;
+}

@@ -150,7 +150,7 @@ export class Mag extends MagLevels {
   private levelMag(): void {
 
     // If a mag is at 200, no more leveling is possible
-    if (this.magLevel == 200){
+    if (this.magLevel === 200){
       return;
     }
 
@@ -299,6 +299,29 @@ export class Mag extends MagLevels {
   }
   public set magLevel(value: number) {
     this._magLevel = value;
+  }
+
+  public logStats(){
+    console.log(
+      "Stats: \nPow: " +
+        this.powProgress +
+        "\nMind: " +
+        this.mindProgress +
+        "\nDef: " +
+        this.defProgress +
+        "\nDex: " +
+        this.dexProgress +
+        "\nPow Level: " +
+        this.powLevel +
+        "\nMind Level: " +
+        this.mindLevel +
+        "\nDef Level: " +
+        this.defLevel +
+        "\nDex Level: " +
+        this.dexLevel +
+        "\nOverall: " +
+        this.magLevel
+    );
   }
 
 }

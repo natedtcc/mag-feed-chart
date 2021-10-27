@@ -4,7 +4,7 @@ import styles from "./Header.module.css";
 const Header = () => {
   return (
     <div className={styles.Header}>
-      <p>PSO Version 1&2 + GC Mag Feed Guide</p>
+      <p>Phantasy Star Online Episode 1&2 Mag Feed Guide</p>
     </div>
   );
 };
