@@ -46,11 +46,11 @@ const FeedButtonGroup: React.FC = () => {
         onClick={() => {mag.magFeed('antidote'); mag.logStats()}}
         label = "Antidote"
         />
+        <br/>
       <FeedButton
         onClick={() => {mag.magFeed('sol'); mag.logStats()}}
         label = "Sol Atomizer"
         />
-        <br/>
       <FeedButton
         onClick={() => {mag.magFeed('moon'); mag.logStats()}}
         label = "Moon Atomizer"
