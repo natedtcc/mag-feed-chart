@@ -7,7 +7,6 @@ import MagTable from './components/MagTable/MagTable';
 import { FeedingChart } from './assets/FeedingChart';
 import Body from './components/Body/Body';
 import FeedButtonGroup from './components/FeedButtonGroup/FeedButtonGroup';
-import Auxi from './hoc/Auxi';
 
 // Create an array of feeding charts
 const mags: FeedingChart[] = [
