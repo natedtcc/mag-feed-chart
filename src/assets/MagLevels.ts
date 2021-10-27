@@ -14,7 +14,7 @@ export class MagLevels {
     "Sila", "Soma", "Ushasu", "Varaha", "Yaksa"];
 
   private _fourthEvo: string[] = [
-    "Bhima", "Deva", "Diwan", "Nidra", "Pushan", "Rati", "Rukmin", "Sato", "Savitri"];
+    "Bhima", "Deva", "Diwan", "Nidra", "Pushan", "Rati", "Rukmin", "Sato", "Savitri", "Mag Cell Mags"];
 
   protected _magLevel: number;
 
