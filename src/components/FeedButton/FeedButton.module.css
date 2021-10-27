@@ -7,6 +7,12 @@
   width: 110px;
   background-color: black;
   margin: 2px;
+  transition: ease background-color 350ms;
+  
+}
+
+.FeedButton:hover{
+  background-color: gray;
 }
 
 .FeedButton label {
