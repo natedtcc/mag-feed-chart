@@ -4,11 +4,13 @@ import { Mag } from "../../assets/Mag";
 import FeedButton from "../FeedButton/FeedButton";
 
 const mag: Mag = new Mag('Mag');
+console.log("Mag starting stats:\n");
+mag.logStats();
 
 const FeedButtonGroup: React.FC = () => {
   return (
     <div className={styles.FeedButtonGroup}>
-      <p>TEST BUTTONS</p>
+      <p>TEST BUTTONS<br/>Current mag: {mag.magName}</p>
       <br/>
       <FeedButton
         onClick={() => {mag.magFeed('monomate'); mag.logStats()}}
