@@ -1,6 +1,6 @@
 // FeedingChart.ts - Mag feeding chart class def - N. Nasteff 10/25/2021
 
-export class FeedingChart {
+class FeedingChart {
 
   // All possible names for this mag in it's current evolution level
   
@@ -776,4 +776,15 @@ export class FeedingChart {
     }
 
   }
+
 }
+
+const feedingCharts: FeedingChart[] = [
+  new FeedingChart(), new FeedingChart('table1'), 
+  new FeedingChart('table2'), new FeedingChart('table3'),
+  new FeedingChart('table4'), new FeedingChart('table5'),
+  new FeedingChart('table6'), new FeedingChart('table7'), 
+]
+
+export { FeedingChart, feedingCharts };
+
