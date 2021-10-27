@@ -37,7 +37,6 @@ export class Mag extends MagLevels {
     super(magName);
 
     // Default base values
-    this.magName = "Placeholder";       // Test value until I finish all feed tables
     this.feedChart = new FeedingChart();
 
     // Let's figure which feeding chart to assign to this mag
