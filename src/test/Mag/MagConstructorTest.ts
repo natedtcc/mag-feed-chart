@@ -6,23 +6,16 @@ const mag2 = new Mag("Kalki");
 const mag3 = new Mag("Vayu");
 const mag4 = new Mag("Kama");
 
-describe('Mag constructor test', () => {
-  it('check if base mag name works', () => {
-    expect(mag.magName).to.equal("Mag");
+// Testing mag levels
 
-  });
-
-  it('check a different name of evolution group 1', () => {
-    expect(mag2.magName).to.equal("Kalki");
-
-  });
-
+describe('Mag level test', () => {
+  
   it('check the level of a base mag', () => {
     expect(mag.magLevel).to.equal(5);
 
   });
 
-  it('check the level of an 1st evolution mag', () => {
+  it('check the level of a 1st evolution mag', () => {
     expect(mag2.magLevel).to.equal(10);
 
   });
@@ -37,5 +30,20 @@ describe('Mag constructor test', () => {
 
   });
 
+})
+
+// Testing mag names
+
+describe('Mag name test', () => {
+
+  it('check if base mag name is correct', () => {
+    expect(mag.magName).to.equal("Mag");
+
+  });
+
+  it('check the name of a 1st evolution mag', () => {
+    expect(mag2.magName).to.equal("Kalki");
+
+  });
 
 })
