@@ -1,13 +1,12 @@
 // Mag.ts - Mag class definitions / logic - N. Nasteff 10/25/2021
 
 import { MagLevels } from "./MagLevels";
-import { FeedingChart } from "./FeedingChart";
+import { FeedingChart, feedingCharts } from "./FeedingChart";
 
 export class Mag extends MagLevels {
 
   // Assign all mag levels / progress to base
   private _magName: string = "";
-
   private _syncLevel: number = 0;
   private _iqLevel: number = 0;
   private _defLevel: number = 5;  // All mags start with 5 defense
@@ -22,13 +21,7 @@ export class Mag extends MagLevels {
   private _mindProgress: number = 0;
   
   // Assign a base mag feed chart to the mag by default
-  protected feedChart: FeedingChart;
-
-  // Array of feeding charts for discerning mag names
-  protected feedCharts: FeedingChart[] = [
-    new FeedingChart(), new FeedingChart('table1'),
-    new FeedingChart('table2'), new FeedingChart('table3')
-  ]
+  private _feedChart: FeedingChart;
 
   // Constructor for base mag / evolutions 1-3
   constructor(magName: string){
@@ -37,12 +30,12 @@ export class Mag extends MagLevels {
     super(magName);
 
     // Default base values
-    this.feedChart = new FeedingChart();
+    this._feedChart = new FeedingChart();
 
     // Let's figure which feeding chart to assign to this mag
-    for (let i=0; i<this.feedCharts.length; i++){
-      if (this.feedCharts[i].names.includes(magName)){
-        this.feedChart = this.feedCharts[i];
+    for (let i=0; i<feedingCharts.length; i++){
+      if (feedingCharts[i].names.includes(magName)){
+        this._feedChart = feedingCharts[i];
         this._magName = magName;
         break;
       }
@@ -54,90 +47,90 @@ export class Mag extends MagLevels {
   public magFeed(food: string): void {
 
     if (food === "monomate") {
-      this._powProgress += this.feedChart.monomate.pow;
-      this._mindProgress += this.feedChart.monomate.mind;
-      this._dexProgress += this.feedChart.monomate.dex;
-      this._defProgress += this.feedChart.monomate.def;
+      this._powProgress += this._feedChart.monomate.pow;
+      this._mindProgress += this._feedChart.monomate.mind;
+      this._dexProgress += this._feedChart.monomate.dex;
+      this._defProgress += this._feedChart.monomate.def;
     }
     else if (food === "dimate") {
-      this._powProgress += this.feedChart.dimate.pow;
-      this._mindProgress += this.feedChart.dimate.mind;
-      this._dexProgress += this.feedChart.dimate.dex;
-      this._defProgress += this.feedChart.dimate.def;
-      this._iqLevel += this.feedChart.dimate.iq;
-      this._syncLevel += this.feedChart.dimate.sync;
+      this._powProgress += this._feedChart.dimate.pow;
+      this._mindProgress += this._feedChart.dimate.mind;
+      this._dexProgress += this._feedChart.dimate.dex;
+      this._defProgress += this._feedChart.dimate.def;
+      this._iqLevel += this._feedChart.dimate.iq;
+      this._syncLevel += this._feedChart.dimate.sync;
     }
     else if (food === "trimate") {
-      this._powProgress += this.feedChart.trimate.pow;
-      this._mindProgress += this.feedChart.trimate.mind;
-      this._dexProgress += this.feedChart.trimate.dex;
-      this._defProgress += this.feedChart.trimate.def;
-      this._iqLevel += this.feedChart.trimate.iq;
-      this._syncLevel += this.feedChart.trimate.sync;
+      this._powProgress += this._feedChart.trimate.pow;
+      this._mindProgress += this._feedChart.trimate.mind;
+      this._dexProgress += this._feedChart.trimate.dex;
+      this._defProgress += this._feedChart.trimate.def;
+      this._iqLevel += this._feedChart.trimate.iq;
+      this._syncLevel += this._feedChart.trimate.sync;
     }
     else if (food === "monofluid") {
-      this._powProgress += this.feedChart.monofluid.pow;
-      this._mindProgress += this.feedChart.monofluid.mind;
-      this._dexProgress += this.feedChart.monofluid.dex;
-      this._defProgress += this.feedChart.monofluid.def;
-      this._iqLevel += this.feedChart.monofluid.iq;
-      this._syncLevel += this.feedChart.monofluid.sync;
+      this._powProgress += this._feedChart.monofluid.pow;
+      this._mindProgress += this._feedChart.monofluid.mind;
+      this._dexProgress += this._feedChart.monofluid.dex;
+      this._defProgress += this._feedChart.monofluid.def;
+      this._iqLevel += this._feedChart.monofluid.iq;
+      this._syncLevel += this._feedChart.monofluid.sync;
     }
     else if (food === "difluid") {
-      this._powProgress += this.feedChart.difluid.pow;
-      this._mindProgress += this.feedChart.difluid.mind;
-      this._dexProgress += this.feedChart.difluid.dex;
-      this._defProgress += this.feedChart.difluid.def;
-      this._iqLevel += this.feedChart.difluid.iq;
-      this._syncLevel += this.feedChart.difluid.sync;
+      this._powProgress += this._feedChart.difluid.pow;
+      this._mindProgress += this._feedChart.difluid.mind;
+      this._dexProgress += this._feedChart.difluid.dex;
+      this._defProgress += this._feedChart.difluid.def;
+      this._iqLevel += this._feedChart.difluid.iq;
+      this._syncLevel += this._feedChart.difluid.sync;
     }
     else if (food === "trifluid") {
-      this._powProgress += this.feedChart.trifluid.pow;
-      this._mindProgress += this.feedChart.trifluid.mind;
-      this._dexProgress += this.feedChart.trifluid.dex;
-      this._defProgress += this.feedChart.trifluid.def;
-      this._iqLevel += this.feedChart.trifluid.iq;
-      this._syncLevel += this.feedChart.trifluid.sync;
+      this._powProgress += this._feedChart.trifluid.pow;
+      this._mindProgress += this._feedChart.trifluid.mind;
+      this._dexProgress += this._feedChart.trifluid.dex;
+      this._defProgress += this._feedChart.trifluid.def;
+      this._iqLevel += this._feedChart.trifluid.iq;
+      this._syncLevel += this._feedChart.trifluid.sync;
     }
     else if (food === "antidote") {
-      this._powProgress += this.feedChart.antidote.pow;
-      this._mindProgress += this.feedChart.antidote.mind;
-      this._dexProgress += this.feedChart.antidote.dex;
-      this._defProgress += this.feedChart.antidote.def;
-      this._iqLevel += this.feedChart.antidote.iq;
-      this._syncLevel += this.feedChart.antidote.sync;
+      this._powProgress += this._feedChart.antidote.pow;
+      this._mindProgress += this._feedChart.antidote.mind;
+      this._dexProgress += this._feedChart.antidote.dex;
+      this._defProgress += this._feedChart.antidote.def;
+      this._iqLevel += this._feedChart.antidote.iq;
+      this._syncLevel += this._feedChart.antidote.sync;
     }
     else if (food === "antiparalys") {
-      this._powProgress += this.feedChart.antiparalysis.pow;
-      this._mindProgress += this.feedChart.antiparalysis.mind;
-      this._dexProgress += this.feedChart.antiparalysis.dex;
-      this._defProgress += this.feedChart.antiparalysis.def;
-      this._iqLevel += this.feedChart.antiparalysis.iq;
-      this._syncLevel += this.feedChart.antiparalysis.sync;
+      this._powProgress += this._feedChart.antiparalysis.pow;
+      this._mindProgress += this._feedChart.antiparalysis.mind;
+      this._dexProgress += this._feedChart.antiparalysis.dex;
+      this._defProgress += this._feedChart.antiparalysis.def;
+      this._iqLevel += this._feedChart.antiparalysis.iq;
+      this._syncLevel += this._feedChart.antiparalysis.sync;
     }
     else if (food === "sol") {
-      this._powProgress += this.feedChart.sol.pow;
-      this._mindProgress += this.feedChart.sol.mind;
-      this._dexProgress += this.feedChart.sol.dex;
-      this._defProgress += this.feedChart.sol.def;
-      this._iqLevel += this.feedChart.sol.iq;
-      this._syncLevel += this.feedChart.sol.sync;
+      this._powProgress += this._feedChart.sol.pow;
+      this._mindProgress += this._feedChart.sol.mind;
+      this._dexProgress += this._feedChart.sol.dex;
+      this._defProgress += this._feedChart.sol.def;
+      this._iqLevel += this._feedChart.sol.iq;
+      this._syncLevel += this._feedChart.sol.sync;
     }
     else if (food === "moon") {
-      this._powProgress += this.feedChart.moon.pow;
-      this._mindProgress += this.feedChart.moon.mind;
-      this._dexProgress += this.feedChart.moon.dex;
-      this._defProgress += this.feedChart.moon.def;
-      this._iqLevel += this.feedChart.moon.iq;
-      this._syncLevel += this.feedChart.moon.sync;
+      this._powProgress += this._feedChart.moon.pow;
+      this._mindProgress += this._feedChart.moon.mind;
+      this._dexProgress += this._feedChart.moon.dex;
+      this._defProgress += this._feedChart.moon.def;
+      this._iqLevel += this._feedChart.moon.iq;
+      this._syncLevel += this._feedChart.moon.sync;
     }
     else if (food === "star") {
-      this._powProgress += this.feedChart.star.pow;
-      this._mindProgress += this.feedChart.star.mind;
-      this._dexProgress += this.feedChart.star.dex;
-      this._defProgress += this.feedChart.star.def;
-      this._iqLevel += this.feedChart.star.iq;
-      this._syncLevel += this.feedChart.star.sync;
+      this._powProgress += this._feedChart.star.pow;
+      this._mindProgress += this._feedChart.star.mind;
+      this._dexProgress += this._feedChart.star.dex;
+      this._defProgress += this._feedChart.star.def;
+      this._iqLevel += this._feedChart.star.iq;
+      this._syncLevel += this._feedChart.star.sync;
     }
 
     // Ensure levels / progressions are within min/max range
@@ -230,6 +223,13 @@ export class Mag extends MagLevels {
   }
   public set magName(value: string) {
     this._magName = value;
+  }
+
+  public get feedChart(): FeedingChart {
+    return this._feedChart;
+  }
+  public set feedChart(value: FeedingChart) {
+    this._feedChart = value;
   }
 
   public get mindProgress(): number {

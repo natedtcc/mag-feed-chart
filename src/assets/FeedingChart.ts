@@ -19,12 +19,14 @@ class FeedingChart {
   sol: { sync: number; iq: number; def: number; pow: number; dex: number; mind: number; };
   moon: { sync: number; iq: number; def: number; pow: number; dex: number; mind: number; };
   star: { sync: number; iq: number; def: number; pow: number; dex: number; mind: number; };
+  tableNum: number;
 
   // With no argument, this will instantiate a base mag feed chart.
   // Otherwise, assign a chart based on evolution level
 
   constructor(feedTable?: 'table1'|'table2'|'table3'|'table4'|'table5'|'table6'|'table7'){
       this.names = ["Mag"];
+      this.tableNum = 0;
       this.monomate = {
         sync: 3,
         iq: 3,
@@ -116,6 +118,7 @@ class FeedingChart {
       };
 
     if (feedTable === 'table1'){
+      this.tableNum = 1;
       this.names = ["Varuna", "Kalki", "Vritra"];
       this.monomate = {
         sync: 0,
@@ -217,6 +220,7 @@ class FeedingChart {
     }
 
     else if (feedTable === 'table2'){
+      this.tableNum = 2;
       this.names = ["Ashvinau", "Sumba", "Namuci", "Marutah", "Rudra"];
       this.monomate =  {
         sync: 0,
@@ -310,6 +314,7 @@ class FeedingChart {
     }
 
     else if (feedTable === 'table3'){
+      this.tableNum = 3;
       this.names = ["Mitra", "Tapas", "Surya"];
       this.monomate= {
         sync: 0,
@@ -402,6 +407,7 @@ class FeedingChart {
     }
 
     else if (feedTable === 'table4'){
+      this.tableNum = 4;
       this.names = ["Asparas", "Vayu", "Varaha", "Ushasu", "Kama", "Kaitabha", "Kumara", "Bhirava"];
       this.monomate= {
         sync: 2,
@@ -494,6 +500,7 @@ class FeedingChart {
     }
 
     else if (feedTable === 'table5'){
+      this.tableNum = 5;
       this.names = [
         "Ila", "Garuda", "Sita", "Soma", "Durga", "Nandin", "Yaksa",
         "Ribhava", "Deva", "Rumkin", "Sato"
@@ -589,6 +596,7 @@ class FeedingChart {
     }
 
     else if (feedTable === 'table6'){
+      this.tableNum = 6;
       this.names = [
         "Andhaka", "Bana", "Kabanda", "Madhu", "Marica",
         "Naga", "Naraka", "Ravana", "Bhima", "Pushan", "Rati"
@@ -684,6 +692,7 @@ class FeedingChart {
     }
 
     else if (feedTable === 'table7'){
+      this.tableNum = 7;
       this.names = ["Diwari", "Nidra", "Savitri", "Mag Cell Mags"];
       this.monomate= {
         sync:  0,
