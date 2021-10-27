@@ -10,7 +10,9 @@ import Body from './components/Body/Body';
 // Create an array of feeding charts
 const mags: FeedingChart[] = [
   new FeedingChart(), new FeedingChart('table1'), 
-  new FeedingChart('table2'), new FeedingChart('table3') 
+  new FeedingChart('table2'), new FeedingChart('table3'),
+  new FeedingChart('table4'), new FeedingChart('table5'),
+  new FeedingChart('table6'), new FeedingChart('table7'), 
 ]
 
 
@@ -23,6 +25,10 @@ function App() {
         <MagTable {...mags[1]} />
         <MagTable {...mags[2]} />
         <MagTable {...mags[3]} />
+        <MagTable {...mags[4]} />
+        <MagTable {...mags[5]} />
+        <MagTable {...mags[6]} />
+        <MagTable {...mags[7]} />
       
     </div>
   );
