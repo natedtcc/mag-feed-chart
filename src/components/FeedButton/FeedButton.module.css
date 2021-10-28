@@ -1,6 +1,6 @@
 .FeedButton {
   font-size: 13px;
-  border-style:ridge;
+  border: 2px solid;
   border-color: aquamarine;
   color: white;
   height: 40px;
@@ -8,6 +8,7 @@
   background-color: black;
   margin: 2px;
   transition: ease background-color 350ms;
+  border-radius: 25px 25px 25px 25px;
   
 }
 
